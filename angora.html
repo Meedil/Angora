@@ -15,8 +15,48 @@
             <li>"Babies are easy, you just watch them be cute and feed them spaghetti" - Lilly Aldrin</li>
             <li></li>
         </ul> -->
+        <nav class="navbar navbar-expand-md navbar-light bg-white nbf">
+          <div class="container">
+            <a class="navbar-brand" href="#">
+              <img src="./images/logo-red.png" alt="" height="24">
+            </a>
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="aboutus" href="#aboutus">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="ourteam" href="#ourteam">Team</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#contact">Contact</a>
+                </li>
+              </ul>
+              <ul class="navbar-nav d-lg-flex block d-none">
+                <li class="nav-item"><a href="" class="nav-link"><i class="fa-brands fa-facebook-f"></i></a></li>
+                <li class="nav-item"><a href="" class="nav-link"><i class="fa-brands fa-instagram"></i></a></li>
+                <li class="nav-item"><a href="" class="nav-link"><i class="fa-brands fa-twitter"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
         <section class="head-section">
-          <nav class="navbar navbar-expand-md navbar-dark bg-none">
+          <nav class="navbar navbar-expand-md navbar-dark bg-none nbt">
             <div class="container">
               <a class="navbar-brand" href="#">
                 <img src="./images/logo-white.png" alt="" height="24">
@@ -56,7 +96,6 @@
               </div>
             </div>
           </nav>
-
           <div class="slideshow">
             <div class="slide-inner">
               <div class="slide show"><img src="./images/slideshow-1.jpg" alt=""></div>
@@ -69,11 +108,14 @@
               <h1 class="display-1 fw-bold slide-title">Advanced in<br>digital works.</h1>
             </div>
           </div>
+
+          <div class="ss-arrows"><a class="arrow left"><i class="fa-solid fa-angle-left"></i></a><a class="arrow right"><i class="fa-solid fa-angle-right"></i></a></div>
+
         </section>
 
         <section class="body-section" id='aboutus'>
           <div class="container">
-            <div class="sectro">
+            <div class="secIntro">
               <h2>About Us</h2>
               <p>Pellentesque elementum libero enim, eget gravida nunc laoreet et. Nullam ac enim auctor, fringilla risus at, imperdiet turpis. Pellentesque elementum libero enim.</p>
             </div>
@@ -120,7 +162,7 @@
 
         <section class="body-section team-section" id="ourteam">
           <div class="container">
-            <div class="sectro">
+            <div class="secIntro">
               <h2>Our Team</h2>
               <p>Vestibulum ante ipsum primis in faucibus orci. Morbi tincidunt urna imperdiet tincidunt rhoncus. Sed mollis ligula non massa aliquam faucibus.</p>
             </div>
@@ -181,7 +223,7 @@
           </div>
         </section>
 
-        <section class="body-section services-section">
+        <section class="body-section services-section" id="services">
           <div class="container">
             <div class="row justify-content-center">
               <div class="section-intro col-lg-8 col-md-12 position-relative">
@@ -384,9 +426,9 @@
           </div>
         </section>
 
-        <section class="body-section contact-section">
+        <section class="body-section contact-section" id="contact">
           <div class="container">
-            <div class="sectro">
+            <div class="secIntro">
               <h2>Get In Touch</h2>
               <p>Mauris at tempus mi, ut iaculis dui. Integer laoreet mattis justo nec pretium. Ut nibh elit, fermentum vel hendrerit vel, dictum nec velit. Morbi volutpat suscipit.</p>
             </div>
@@ -446,7 +488,7 @@
           })
         </script>
         <script>
-          $('div.sectro').each((i, e) => {
+          $('div.secIntro').each((i, e) => {
             let h = $(e).find('h2');
             h.addClass('section-title').attr("data-bg-letter", h.text().charAt(0)).append('<hr>').clone();
             
@@ -454,14 +496,6 @@
             
             $(e).html('').append('<div class="row justify-content-center">').children('div').append('<div class="section-intro col-lg-8 col-md-12 position-relative">').children('div').append(h,p);
           })
-          
-          var observer = new IntersectionObserver(entries => {
-            if(entries[0].isIntersecting === true){
-              $('.progress-bar').addClass('animate__animated animate__slideInLeft')
-            }
-          })
-
-          observer.observe(document.querySelector('.progress-bar'))
         </script>
     </body>
     <footer class="pt-4">

@@ -14,10 +14,24 @@ p{
     font-family: Poppins, sans-serif !important;
 }
 
-.navbar{
+.nbt{
     z-index: 1000;
     padding: 18pt;
     border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.nbf{ /* Navbar fixed */
+    position: fixed;
+    z-index: 1001;
+    padding: 12pt;  
+    width: 100%;
+
+    transform: translateY(-100%);
+    transition: transform 500ms;
+}
+.nbf-on{
+    box-shadow: 0 0px 20px 0px rgba(0,0,0,0.1);
+    transform: translateY(0);
 }
 
 .navbar-collapse{
@@ -28,6 +42,8 @@ p{
     font-weight: 500;
     font-size: 14px;
     padding: 0 15px !important;
+}
+.nbt .nav-link{
     color: white;
 }
 
@@ -47,12 +63,15 @@ section{
     height: fit-content;
 }
 
+/* SLIDESHOW */
+
 .head-section{
     height: 100vh;
     overflow: hidden;
 }
 
 .slide{
+    display: block;
     opacity: 0;
     position: absolute;
     right:0; bottom:0;
@@ -66,14 +85,10 @@ section{
     z-index: -1;
 }
 
-.show{
-    display: block !important;
-    opacity: 1;
-}
-
 .slide-title{
-    display: none;
+    display: block;
     position: absolute;
+    opacity: 0;
 
     color: white;
     text-align: center;
@@ -85,11 +100,47 @@ section{
     line-height: 0.9em;
 }
 
+.show{
+    opacity: 1;
+}
+
 .animate__fadeIn{
     animation-fill-mode: forwards;
 }
 .animate__fadeOut{
     animation-fill-mode: forwards;
+}
+
+.ss-arrows{
+    position:absolute;
+    left: -1px;
+    top: 50%;
+    transform:translateY(-50%);
+}
+.arrow{
+    display:block;
+    width: 50px;
+    height: 50px;
+    padding-top: 7px;
+
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    border: 1px solid white;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+
+    background: linear-gradient(to right, white 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position-x: 100%;
+    transition: 0.2s;
+}
+arrow.right{
+    margin-top: -1px;
+}
+.arrow:hover{
+    background-position-x: 0;
+    border-color: white !important;
 }
 
 /* ABOUT US */
@@ -146,10 +197,15 @@ p{
 }
 .progress-bar{
     background-color: var(--red);
+    border-radius: 3px;
+    --animate-duration: 3s;
 }
 .progress-value{
     text-align: right;
+    /* opacity: 0; */
+    transition: 0.3s;
 }
+
 
 /* OUR TEAM */
 .job{

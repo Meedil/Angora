@@ -10,19 +10,34 @@ function clearSlide(){
     slideTitles[currentSlide].classList.remove('show', 'animate__slideInRight');
 }
 function showSlide(slide){
+    //Start fade-in animation of picture
     slides[slide].classList.remove('animate__fadeOut');
     slides[slide].classList.add('show', 'animate__animated', 'animate__fadeIn');
+    //Start slideInRight animation of title
     slideTitles[slide].classList.add('show', 'animate__animated', 'animate__slideInRight');
     currentSlide = slide;
 }
+
 function nextSlide(){
-    console.log('function called')
     clearSlide();
     showSlide((currentSlide + 1) % slides.length);
 }
+function prevSlide(){
+    clearSlide();
+    showSlide((slides.length + currentSlide - 1) % slides.length);
+}
 
 showSlide(0);
-setInterval("nextSlide()", 5000);
+var slideshowInterval = setInterval("nextSlide()", 8000);
+
+function resetInterval(interval){
+    clearInterval(interval);
+    slideshowInterval = setInterval("nextSlide()", 8000);
+}
+
+$('.arrow.left').click(e => {prevSlide(); resetInterval(slideshowInterval);})
+$('.arrow.right').click(e => {nextSlide(); resetInterval(slideshowInterval);})
+
 
 // Progress-bars
 var progs = document.querySelectorAll('.prog');
@@ -40,15 +55,17 @@ for(let i = 0; i < progs.length; i++){
     pcentLabel = prog.firstElementChild.insertAdjacentElement('afterend', pcentLabel);
 }
 
-// CLIENTS
-// var current_client = 0;
-// var clients = document.querySelectorAll('.client-slide');
+var observer = new IntersectionObserver(entries => {
+    if(entries[0].isIntersecting === true){
+        $('.progress-bar').addClass('animate__animated animate__slideInLeft animate')//.on('animationend', e => )
+    }
+})
 
-// for(let i = 0; i < clients.length; i++){
-//     let c = clients[i];
-//     c.addEventListener('click', (e) => {
-//         console.log('adding class');
-//         document.querySelector('.selected-client').classList.remove('selected-client');
-//         c.classList.add('selected-client');
-//     })
-// }
+observer.observe(document.querySelector('.progress-bar'))
+
+//navbar
+$(document).scroll(function () { 
+    let scrollHeight = $(document).scrollTop();
+    if(scrollHeight > 0){$('.nbf').addClass('nbf-on')}
+    else $('.nbf').removeClass('nbf-on');    
+});
