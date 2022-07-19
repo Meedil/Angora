@@ -54,3 +54,18 @@ for(let i = 0; i < progs.length; i++){
 
     pcentLabel = prog.firstElementChild.insertAdjacentElement('afterend', pcentLabel);
 }
+
+var observer = new IntersectionObserver(entries => {
+    if(entries[0].isIntersecting === true){
+        $('.progress-bar').addClass('animate__animated animate__slideInLeft animate')//.on('animationend', e => )
+    }
+})
+
+observer.observe(document.querySelector('.progress-bar'))
+
+//navbar
+$(document).scroll(function () { 
+    let scrollHeight = $(document).scrollTop();
+    if(scrollHeight > 0){$('.nbf').addClass('nbf-on')}
+    else $('.nbf').removeClass('nbf-on');    
+});
