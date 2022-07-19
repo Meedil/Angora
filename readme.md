@@ -3,6 +3,5 @@
 *https://routeegypt.com/angora/*
 
 #### Differences from original:
-- buttons on first slideshow aren't included
-- second navbar (appears after scrolling) is missing
-- text below slick carousel scrolls in rather than fading in
+- Inner width of containers seems to be different
+- Text below slick carousel scrolls in rather than fading in
