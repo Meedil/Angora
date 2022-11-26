@@ -95,7 +95,7 @@ section{
     
     width: 100%;
     height: 20vh;
-    padding: 30vh  0;
+    padding: 30vh  50px;
     vertical-align: middle;
     line-height: 0.9em;
 }
@@ -298,23 +298,29 @@ p{
 }
 
 /* CLIENTS */
-.client-carousel-container{
-    justify-content: center;
+.client-carousel{
+    width: 100%;
 }
 
-.client-slide{
-    display:inline-block;
-}
 .client{
-    padding-top: 1vw;
-    transition: 0.5s;
+    display: block;
+    margin: auto 15px;
+}
+
+.client-img{
+    width: 100%;
+    object-fit: contain;
+}
+
+.slick-current .client-img{
+    transform: scale(1.2);
+    margin-bottom: 20px;
+    opacity: 1;
 }
 
 .slick-center .client{padding-top:0;}
-.slick-center .client-img{
-    opacity: 1;
-    margin-top: 0;
-    width: 9vw;
+.client-img{
+    margin-top: 20px;
 }
 .slick-center .client-review{
     opacity: 1;
@@ -331,25 +337,34 @@ p{
 
 .client-img{
     opacity: 0.5;
-    border-radius: 100px;
+    border-radius: 100%;
     
-    width: 8vw;
-    margin: auto;
     cursor: pointer;
     transition: 0.5s;
 }
-
-
+.client-review-container{
+    height: 20vh;
+}
 
 .client-review{
-    width: 500%;
-    margin-left: -200%;
-    /* position: absolute; */
     text-align: center;
-    top: 450pt;
     opacity: 0;
     color: #666;
     transition: 0.5s;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60vw;
+}
+
+@media (width <= 500px){
+    .client-review h4{
+        font-size: 20px;
+    }
+    .client-review-container{
+        height: 30vh
+    }
 }
 
 
