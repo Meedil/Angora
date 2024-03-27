@@ -1,7 +1,12 @@
-# Readme
-#### This project is a replicaion of the website:
-*https://routeegypt.com/angora/*
+# Angora - Static Webpage 
+This static webpage was an assignment from a colleague.
 
-#### Differences from original:
-- Inner width of containers seems to be different
-- Text below slick carousel scrolls in rather than fading in
+It was supposed to be a replica of *https://routeegypt.com/angora*, but the original page is no longer available.
+
+In this project, I implemented my own solutions from scratch for some problems and used some libraries to solve others.
+
+## Libraries used:
+- Bootstrap 5
+- Slick.js (small carousel)
+- Font Awesome (icons)
+- Animate.css (to help with animations)
