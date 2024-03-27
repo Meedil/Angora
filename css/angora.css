@@ -438,7 +438,7 @@ button:hover {
 /* footer */
 footer {
   background-color: #222;
-  background-image: url(./images/dotted-map.png);
+  background-image: url('../images/dotted-map.png');
   background-size: contain;
   background-repeat: repeat;
   min-height: 50vh;
